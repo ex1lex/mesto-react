@@ -1,12 +1,22 @@
 export default function PopupWithForm(props) {
   const openClass = props.isOpen ? "dialog_show" : "";
 
+  const overlayClickHandle = (e) => {
+    if (
+      e.target.classList.contains("dialog") ||
+      e.target.classList.contains("dialog__form") ||
+      e.target.classList.contains("dialog__content-card")
+    ) {
+      props.onClose();
+    }
+  };
+
   return (
     <div
       className={`dialog dialog_${props.name} ${openClass}`}
-      onClick={props.onClose}
+      onClick={overlayClickHandle}
     >
-      <div className="dialog__form" onClick={props.onClose}>
+      <div className="dialog__form">
         <form
           action="#"
           className="dialog__content"
@@ -16,9 +26,6 @@ export default function PopupWithForm(props) {
         >
           <h3 className="dialog__title">{props.title}</h3>
           {props.children}
-          <button type="submit" form={props.name} className="dialog__submit">
-            {props.btnText}
-          </button>
         </form>
         <button
           type="submit"

@@ -6,7 +6,7 @@ export default function Card(props) {
   };
 
   return (
-    <>
+    <div className="gallery__item" key={props.id}>
       <img
         src={props.src}
         alt="картинка галереи"
@@ -21,6 +21,6 @@ export default function Card(props) {
           <p className="gallery__like-count">{likes}</p>
         </div>
       </div>
-    </>
+    </div>
   );
 }

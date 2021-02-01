@@ -1,4 +1,4 @@
-class Api {
+class api {
   constructor(baseUrl, token) {
     this._baseUrl = baseUrl;
     this._token = token;
@@ -100,9 +100,9 @@ class Api {
   }
 }
 
-const api = new Api(
+const Api = new api(
   "https://mesto.nomoreparties.co/v1/cohort-19",
   "89348099-1c1a-4669-810a-e3803229c3b9"
 );
 
-export default api;
+export default Api;
