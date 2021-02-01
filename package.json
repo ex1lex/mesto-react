@@ -1,11 +1,11 @@
 {
   "name": "mesto-react",
   "version": "0.1.0",
-  "homepage": "https://github.com/ex1lex/mesto-react/",
+  "homepage": "https://ex1lex.github.io/mesto-react/",
   "author": "Alexey Obryadin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ex1lex/mesto/issues"
+    "url": "https://github.com/ex1lex/mesto-react/issues"
   },
   "repository": {
     "type": "git",
