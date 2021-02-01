@@ -17,4 +17,4 @@
 
 **Preview**
 
-- [Ссылка на GitHub Pages](https://ex1lex.github.io/mesto-react)
+- [Ссылка на GitHub Pages](https://ex1lex.github.io/mesto-react/)
