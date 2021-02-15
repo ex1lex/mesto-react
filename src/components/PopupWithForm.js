@@ -22,6 +22,7 @@ export default function PopupWithForm(props) {
           className="dialog__content"
           id={props.name}
           name={props.name}
+          onSubmit={props.onSubmit}
           noValidate
         >
           <h3 className="dialog__title">{props.title}</h3>

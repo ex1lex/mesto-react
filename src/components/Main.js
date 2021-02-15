@@ -1,21 +1,10 @@
 import editIconPath from "../images/edit.svg";
 import Card from "./Card";
-import Api from "../utils/api";
 import React from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 export default function Main(props) {
-  const [user, setUser] = React.useState({});
-
-  const [cards, setCards] = React.useState([]);
-
-  React.useEffect(() => {
-    Promise.all([Api.getUserInfo(), Api.getInitialCards()])
-      .then(([userInfo, initialCards]) => {
-        setUser(userInfo);
-        setCards(initialCards);
-      })
-      .catch(Api.catch);
-  }, []);
+  const user = React.useContext(CurrentUserContext);
 
   return (
     <main className="content">
@@ -27,12 +16,15 @@ export default function Main(props) {
               src={user.avatar}
               alt="Аватар профиля"
             />
-            <button type="button" className="profile__avatar-btn">
+            <button
+              type="button"
+              className="profile__avatar-btn"
+              onClick={props.onEditAvatar}
+            >
               <img
                 className="profile__edit-icon"
                 src={editIconPath}
                 alt="иконка редактирования аватара"
-                onClick={props.onEditAvatar}
               />
             </button>
           </div>
@@ -56,14 +48,14 @@ export default function Main(props) {
         ></button>
       </section>
       <div className="gallery">
-        {cards.map((item) => {
+        {props.cards.map((item) => {
           return (
             <Card
-              id={item._id}
-              name={item.name}
-              src={item.link}
-              likesCount={item.likes.length}
+              key={item._id}
+              item={item}
               onClickCard={props.onCardClick}
+              onCardDelete={props.onCardDelete}
+              onCardLike={props.onCardLike}
             />
           );
         })}

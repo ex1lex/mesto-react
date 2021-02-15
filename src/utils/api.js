@@ -31,44 +31,36 @@ class api {
     }).then(this._handleResponse);
   }
 
-  setUserAvatar({ inputNewImageUrl }) {
+  setUserAvatar(newAvatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: {
         authorization: this._token,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        avatar: inputNewImageUrl,
-      }),
+      body: JSON.stringify(newAvatar),
     }).then(this._handleResponse);
   }
 
-  setUserInfo({ inputName, inputAbout }) {
+  setUserInfo(info) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: {
         authorization: this._token,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name: inputName,
-        about: inputAbout,
-      }),
+      body: JSON.stringify(info),
     }).then(this._handleResponse);
   }
 
-  addNewCard(name, link) {
+  addNewCard(newCard) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: {
         authorization: this._token,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name: name,
-        link: link,
-      }),
+      body: JSON.stringify(newCard),
     }).then(this._handleResponse);
   }
 
