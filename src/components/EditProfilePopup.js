@@ -8,13 +8,13 @@ export default function EditProfilePopup(props) {
   const [name, setName] = React.useState();
   const [description, setDescription] = React.useState();
 
-  function handleNameChange(e) {
+  const handleNameChange = (e) => {
     setName(e.target.value);
-  }
+  };
 
-  function handleDescriptionChange(e) {
+  const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
-  }
+  };
 
   const handleSubmit = (e) => {
     props.onUpdateUser({

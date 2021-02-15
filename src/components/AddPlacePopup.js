@@ -5,13 +5,13 @@ export default function AddPlacePopup(props) {
   const [name, setName] = React.useState();
   const [link, setLink] = React.useState();
 
-  function handleNameChange(e) {
+  const handleNameChange = (e) => {
     setName(e.target.value);
-  }
+  };
 
-  function handleLinkChange(e) {
+  const handleLinkChange = (e) => {
     setLink(e.target.value);
-  }
+  };
 
   const handleSubmit = (e) => {
     props.onAddPlace({
